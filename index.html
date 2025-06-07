@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuvanshi Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+
+
+        body {
+            background-color: rgb(24, 22, 22);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        nav {
+            display: flex;
+
+            align-items: center;
+            flex-wrap: wrap;
+
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 140px;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            position: relative;
+        }
+
+        ul li:hover {
+            cursor: pointer;
+        }
+
+        /* Underline hover effect using border-bottom */
+        ul li:hover {
+            border-bottom: 2px solid #ff004f;
+        }
+
+        .header-text {
+            margin-top: 20%;
+            font-size: 30px;
+        }
+
+        .header-text h1 {
+            font-size: 60px;
+            margin-top: 20px;
+        }
+
+        .header-text h1 span {
+            color: #3316b5;
+        }
+
+        #about {
+            padding: 80px 0;
+            color: #ababab;
+
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+        }
+
+        .about-col-1 {
+            flex-basis: 35%;
+
+
+        }
+
+        .about-col-1 img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .about-col-2 {
+            flex-basis: 60%;
+        }
+
+        .sub-title {
+            font-size: 60px;
+            font-weight: 600;
+            color: #18b9c8d8
+        }
+
+        .tab-title {
+            display: flex;
+            margin: 20px 0 40px;
+
+        }
+
+        .tab-links {
+            margin-right: 50px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+
+        }
+
+        .tab-links::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: #ff004f;
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            transition: 0.5s;
+
+
+        }
+
+        .tab-links.active-link::after {
+            width: 50%;
+
+        }
+
+        .tab-content ul li {
+            list-style: disc;
+
+            color: #ababab;
+
+
+        }
+
+        .tab-content ul li span {
+            color: #54cf8f;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active-tab {
+            display: block;
+
+        }
+
+        .tab-content ul {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-left: 20px;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .tab-content,
+        .tab-content * {
+            text-decoration: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        .tab-content:hover,
+        .tab-content *:hover {
+            text-decoration: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        #services {
+            padding: 30px 0;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 40px;
+            margin-top: 50px;
+        }
+
+        .services-list div {
+            background: #262626;
+            padding: 40px;
+            font-size: 13px;
+            font-weight: 300;
+            border-right: 10px;
+            transition: background 0.5s, transform 0.5s;
+        }
+
+        .services-list div i {
+            font-size: 50px;
+            margin-bottom: 30px;
+        }
+
+        .services-list div h2 {
+            font-size: 30px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .services-list div p {
+            /* Added this to style the paragraph */
+            color: #fff;
+            /* Ensure the text is visible */
+        }
+
+        .services-list div:hover {
+            /* Changed this line */
+            background: #ff004f;
+            transform: translateY(-10px);
+        }
+
+        #portfolio {
+            padding: 50px 0;
+        }
+
+        .work-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        /* Project card */
+        .work {
+            background: #262626;
+            padding: 40px;
+            font-size: 13px;
+            font-weight: 300;
+            color: #eee;
+            border-radius: 6px;
+            box-sizing: border-box;
+            transition: background 0.5s, transform 0.5s;
+            cursor: pointer;
+        }
+
+        .work h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .work p {
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        /* GitHub link styling */
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .github-link i {
+            margin-right: 8px;
+            font-size: 20px;
+        }
+
+        .github-link:hover {
+            color: #ff004f;
+        }
+
+        /* Hover effect on entire project card */
+        .work:hover {
+            background: #c314ac;
+            transform: translateY(-10px);
+        }
+
+        .contact-left {
+            flex-basis: 35%;
+        }
+
+        .contact-right {
+            flex-basis: 60%;
+        }
+
+        .contact-left p {
+            margin: 30px;
+        }
+
+        .contact-left p i {
+            color: #ff004f;
+            margin-right: 15px;
+            font-size: 25px;
+
+
+        }
+
+        .social-icons {
+            margin-top: 30px;
+
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            font-size: 30px;
+            margin-right: 15px;
+            color: #ababab;
+            display: inline-block;
+            transition: transform 0.5s;
+
+        }
+
+        .social-icons a:hover {
+            color: #00ff48;
+            transform: translateY(-5px);
+
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, #6b73ff 0%, #000dff 100%);
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(107, 115, 255, 0.4);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #000dff 0%, #6b73ff 100%);
+            box-shadow: 0 6px 20px rgba(0, 13, 255, 0.6);
+        }
+
+        .contact-right form {
+            width: 100%;
+
+
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            border: 0;
+            outline: none;
+            background: #262626;
+            padding: 15px;
+            margin: 15px 0;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 6px;
+
+
+        }
+
+        form .btn2 {
+            padding: 14px 60px;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .copyright {
+            width: 100%;
+            text-align: center;
+            padding: 25px 0;
+            background: #262626;
+            font-weight: 300;
+            margin-top: 20px;
+
+        }
+
+        :root {
+            --primary-color: #007bff;
+            --bg-color: #fff;
+            --text-color: #333;
+            --hover-color: #0056b3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #070607;
+        }
+
+        nav {
+            background: linear-gradient(90deg, #0ab5ee, #10e71b);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 0;
+            gap: 40px;
+
+        }
+
+        nav ul li {}
+
+        nav ul li a {
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 35px;
+            transition: background-color 0.3s ease,
+                transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul li a .fa-solid {
+            font-size: 16px;
+        }
+
+        .menu-btn {
+            display: none;
+            /* Hide by default */
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            position: relative;
+            z-index: 1100;
+        }
+
+        .menu-btn .bar {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            /* Change to your desired color */
+            border-radius: 2px;
+            transition: all 0.4s ease;
+            position: absolute;
+            left: 0;
+        }
+
+        .menu-btn .bar:nth-child(1) {
+            top: 6px;
+        }
+
+        .menu-btn .bar:nth-child(2) {
+            top: 14px;
+        }
+
+        .menu-btn .bar:nth-child(3) {
+            top: 22px;
+        }
+
+        /* Cross Icon (when active) */
+        .menu-btn.active .bar:nth-child(1) {
+            transform: rotate(45deg);
+            top: 14px;
+        }
+
+        .menu-btn.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-btn.active .bar:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 14px;
+
+        }
+
+
+
+
+        /*css for small screen*/
+        @media only screen and (max-width: 600px) {
+            .header-text {
+                margin-top: 100%;
+                font-size: 16px;
+
+            }
+
+            .header-text h1 {
+                font-size: 30px;
+
+            }
+
+            nav .custom_icon {
+                display: block;
+                font-size: 25px;
+            }
+
+            nav ul {
+                display: none;
+                /* Hide the menu by default */
+                flex-direction: column;
+                /* Stack items vertically */
+                position: absolute;
+                top: 60px;
+                /* Adjust based on your nav height */
+                right: 0;
+                background: rgba(0, 0, 0, 0.8);
+                /* Background color for the dropdown */
+                width: 100%;
+                /* Full width */
+                z-index: 1000;
+            }
+
+            nav ul.open {
+                display: flex;
+                /* Show the menu when open */
+            }
+
+            .menu-btn {
+                display: block;
+                /* Show the menu button on small screens */
+            }
+
+            .typing {
+                border-right: 2px solid #ea084c;
+                /* Cursor effect */
+                white-space: nowrap;
+                overflow: hidden;
+                display: inline-block;
+            }
+
+            /* Add a blinking effect for the cursor */
+            @keyframes blink {
+                0% {
+                    border-color: transparent;
+                }
+
+                50% {
+                    border-color: #ff004f;
+                }
+
+                100% {
+                    border-color: transparent;
+                }
+            }
+
+            .cursor {
+                animation: blink 0.7s step-end infinite;
+            }
+
+
+        }
+
+        body.light-theme {
+            background-color: #f7f7f7;
+            /* Light gray background */
+            color: #333333;
+            /* Dark gray text color */
+        }
+
+        body.light-theme nav {
+            background: linear-gradient(90deg, #021b1e, #15ca0f);
+            /* Soft light nav background */
+        }
+
+        body.light-theme .services-list div {
+            background: #21afe3;
+            /* White service card background */
+            color: #333;
+            /* Dark gray text color */
+            border: 1px solid #ddd;
+            /* Light border for cards */
+        }
+
+        body.light-theme .work {
+            background: #dceb07;
+            /* White project card background */
+            color: #333;
+            /* Dark gray text color */
+            border: 1px solid #ddd;
+            /* Light border for cards */
+        }
+
+        body.light-theme .github-link {
+            color: #152455;
+            /* Soft green for links */
+        }
+
+        body.light-theme .btn {
+            background: #1a4390;
+            /* Soft green button background */
+            color: #ffffff;
+            /* White text on buttons */
+        }
+
+        body.light-theme .btn:hover {
+            background: #45a049;
+            /* Darker green on hover */
+        }
+
+        * About Me Section */ .body.light-theme .about-col-2 {
+            background-color: #b11b1b;
+            /* White background for the about section */
+            border-radius: 10px;
+            /* Rounded corners */
+            padding: 20px;
+            /* Padding for spacing */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            /* Soft shadow for depth */
+            margin-top: 20px;
+            /* Space above the section */
+        }
+
+        /* Sub-title for About Me */
+        .sub-title {
+            font-size: 28px;
+            /* Font size for sub-title */
+            font-weight: 600;
+            /* Bold font weight */
+            color: #00112d;
+            /* Color for the sub-title */
+            margin-bottom: 15px;
+            /* Space below the sub-title */
+        }
+
+        /* Tab Links */
+        .tab-title {
+            display: flex;
+            margin: 20px 0 40px;
+        }
+
+        .tab-links {
+            margin-right: 50px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+            color: #cd0404;
+            /* Dark gray text color */
+        }
+
+            .theme-toggle-btn {
+                background-color: #e0f7fa;
+                /* Match the nav background */
+                color: #333;
+                /* Dark gray text color */
+                border: none;
+                /* Remove default border */
+                padding: 10px 15px;
+                /* Add padding for a better appearance */
+                border-radius: 25px;
+                /* Rounded corners */
+                font-size: 16px;
+                /* Font size */
+                cursor: pointer;
+                /* Pointer cursor on hover */
+                transition: background-color 0.3s ease, color 0.3s ease;
+                /* Smooth transition */
+            }
+
+            .theme-toggle-btn:hover {
+                background-color: #b2ebf2;
+                /* Slightly darker on hover */
+                color: #000;
+                /* Darker text color on hover */
+            }
+    </style>
+
+    <script src="https://kit.fontawesome.com/b6c256edd1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="logo Yuvanshi.png" class="logo">
+            <div class="right"> </div>
+            <ul id="sidemenu">
+                <li><a href="#home"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="#about"><i class="fa-solid fa-user"></i> About</a></li>
+                <li><a href="#services"><i class="fa-solid fa-gear"></i> Services</a></li>
+                <li><a href="#project"><i class="fa-solid fa-folder-open"></i> Project</a></li>
+                <li><a href="#contact-me"><i class="fa-solid fa-envelope"></i> Contact Me</a></li>
+                <li><button id="theme-toggle" class="theme-toggle-btn"> Change Theme</button></li>
+            </ul>
+
+            <button class="menu-btn" id="menu-btn" aria-label="Toggle menu" aria-expanded="false"
+                aria-controls="nav-links">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+        </nav>
+        <div class="header-text">
+            <p>Student</p>
+            <h1>
+                <span class="typing" id="dynamic-text"></span><span class="cursor"></span>
+            </h1>
+
+        </div>
+    </header>
+    <div class="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="Yuvanshi About me.jpg">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>Hi, I'm Yuvanshi Bhalawat, a passionate second-year IT undergraduate at Acropolis Institute of
+                        Technology & Research. With a keen interest in Data Structures & Algorithms (C++/C), Frontend
+                        Development (HTML/CSS), SQL, and AI, I love exploring tech-driven solutions that make a positive
+                        impact.
+
+                        <br> An enthusiastic problem-solver and creative thinker, I'm always eager to learn, experiment,
+                        and
+                        grow. Whether it's debugging code, designing intuitive interfaces, or diving into AI
+                        innovations, I'm committed to refining my skills and embracing new opportunities.
+
+                        Let's connect and create something amazing together!
+                    </p>
+
+                    <div class="tab-title">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('certifications')">Certifications</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-content active-tab" id="skills">
+                        <ul>
+                            <li><span>DSA</span><BR>C/C++</BR></li>
+
+                            <li><span>Frontend</span><BR>HTML/CSS</BR></li>
+
+                            <li><span>SQL</span><BR></BR></li>
+
+
+                        </ul>
+
+                    </div>
+
+
+
+                    <div class="tab-content" id="certifications">
+                        <ul>
+                            <li><span>Oracle Database 12c : SQL Fundamental</span><BR>Oracle</BR></li>
+
+                            <li><span>Salesforce certified AI Associate</span><BR>Salesforce</BR></li>
+
+                            <li><span>MATLAB Certifed</span><BR>MathWorks</BR></li>
+
+                            <li><span>Spoken Tutorial Project by IIT Bombay</span><BR>Advanced C++</BR></li>
+
+
+                            <li><span>Spoken Tutorial Project by IIT Bombay</span><BR>C++</BR></li>
+
+
+
+                            <li><span>HP Life Online coursse</span><BR>AI for Beginner</BR></li>
+
+
+
+                        </ul>
+
+                    </div>
+
+                    <div class="tab-content" id="education">
+                        <ul>
+                            <li><span>2027 </span><br>B.Tech Information Technology<br>Acropolis Institute of Technology
+                                and Research
+                            </li>
+
+
+                            <li><span>2023 </span><br>C.B.S.E Higher Secondary Education<br>Vaishnav Bal Mandir<br>87%
+                            </li>
+
+                            <li><span>2021 </span><br>C.B.S.E Secondary Education<br>Vaishnav Bal Mandir<br>89%
+                            </li>
+                        </ul>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="services">
+        <div class="containter">
+            <h1 class="sub-title">Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Frontend Developer</h2>
+                    <p>Crafting a visually appealing and user-friendly services section with HTML, CSS, and JavaScript
+                        to
+                        enhance engagement and functionality.</p>
+
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <h2>Content Writer</h2>
+                    <p>Crafting compelling and informative content for the services section to engage users and
+                        effectively communicate offerings</p>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-image"></i>
+                    <h2>Photo Editor</h2>
+                    <p>Enhancing and retouching images with precision to create visually stunning and professionally
+                        edited photos</p>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-----portfolio-->
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">My Project</h1>
+
+            <div class="work-list">
+
+                <div class="work">
+                    <div>
+                        <h2>Simple Chatbot using Python</h2>
+
+                        <p>Developed a basic chatbot using Python to facilitate user interactions through automated
+                            responses. It demonstrates fundamental chatbot logic and enhances engagement with intuitive
+                            conversation flow.</p>
+
+
+                        <a href="https://github.com/Yuvi25Jain/CODSOFT/commit/0de2bf4ffb91fa525f20427215a7187d4731ed23"
+                            target="_blank" rel="noopener noreferrer" class="github-link">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work">
+                    <div>
+                        <h2>Mega Project : Auto Reply Ai Chatbot</h2>
+
+                        <p>Developed a basic chatbot using Python to facilitate user interactions through automated
+                            responses. It demonstrates fundamental chatbot logic and enhances engagement with intuitive
+                            conversation flow.</p>
+
+
+                        <a href="https://github.com/Yuvi25Jain/Python_Projects/tree/main.py" target="_blank"
+                            rel="noopener noreferrer" class="github-link">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="work">
+                    <div>
+                        <h2>Mega Project : Jarvis AI</h2>
+
+                        <p>It is Ai powered Voice assistant which can perform basic operations like to play youtube
+                            videos , can open any app as per user voice instruction</p>
+
+
+                        <a href="https://github.com/Yuvi25Jain/Python_Projects/blob/Jarvis-AI/file1%20main.py"
+                            target="_blank" rel="noopener noreferrer" class="github-link">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact me</h1>
+                    <p><i class="fa-solid fa-paper-plane"></i>yuvanshibhalawat@gmail.com</p>
+                    <p><i class="fa-solid fa-phone"></i>9754621994</p>
+                    <div class="social-icons">
+                        <a href="http://www.linkedin.com/in/yuvanshi-bhalawat"><i class="fa-brands fa-linkedin"></i></a>
+
+                        <a href="https://www.instagram.com/y.u.v.i_25_jain/"><i class="fa-brands fa-instagram"></i></a>
+
+                        <a href="https://github.com/Yuvi25Jain"><i class="fa-brands fa-github"></i></a>
+
+
+
+                    </div>
+                    <a href="YuvanshiBhalawatResume.pdf" class="btn btn2">Download Cv</a>
+                </div>
+
+                <div class="contact-right">
+                    <form>
+                        <input type="text" name="Name" placeholder="Your Name" required>
+
+                        <input type="email" name="email" placeholder="Your Email" required>
+
+                        <textarea name="Message" rows="6" placeholder="Your message" required></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>All Copyright are reserved</p>
+
+        </div>
+    </div>
+    <script>
+
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-content");
+        function opentab(tabname) {
+            for (var tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (var tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            document.getElementById(tabname).classList.add("active-tab");
+            event.currentTarget.classList.add("active-link");
+
+
+
+
+        }
+
+        const menuBtn = document.getElementById('menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        menuBtn.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            menuBtn.classList.toggle('active');
+            menuBtn.setAttribute('aria-expanded', isOpen);
+        });
+
+
+        document.querySelectorAll('nav ul li a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetID = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetID);
+                if (targetElement) {
+                    const navHeight = document.querySelector('nav').offsetHeight || 60;
+
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = window.pageYOffset + elementPosition - navHeight;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Close menu if open on small screens (optional)
+                    const navUl = document.querySelector('nav ul');
+                    if (navUl.classList.contains('open')) {
+                        navUl.classList.remove('open');
+                        const menuBtn = document.getElementById('menu-btn');
+                        if (menuBtn) {
+                            menuBtn.classList.remove('active');
+                            menuBtn.setAttribute('aria-expanded', false);
+                        }
+                    }
+                }
+            });
+        });
+
+
+        const text = "Hey there, I'm Yuvanshi Bhalawat"; // Text to type
+        const additionalText = "from Indore"; // Additional text to type after erasing
+        const typingElement = document.getElementById("dynamic-text");
+        let index = 0;
+        let typingInterval;
+        let isErasing = false;
+
+        function type() {
+            if (!isErasing) {
+                if (index < text.length) {
+                    typingElement.textContent += text.charAt(index);
+                    index++;
+                } else {
+                    isErasing = true; // Start erasing after typing is complete
+                    setTimeout(() => {
+                        index = text.length; // Reset index for erasing
+                        erase(); // Start erasing
+                    }, 1000); // Wait 1 second before starting to erase
+                }
+            }
+        }
+
+        function erase() {
+            if (index > 0) {
+                typingElement.textContent = text.substring(0, index);
+                index--;
+            } else {
+                isErasing = false; // Stop erasing
+                index = 0; // Reset index for typing additional text
+                setTimeout(() => {
+                    typeAdditionalText(); // Start typing additional text
+                }, 500); // Wait before typing additional text
+            }
+        }
+
+        function typeAdditionalText() {
+            if (index < additionalText.length) {
+                typingElement.textContent += additionalText.charAt(index);
+                index++;
+                setTimeout(typeAdditionalText, 100); // Adjust typing speed here
+            }
+        }
+
+        // Start typing effect
+        typingInterval = setInterval(type, 150); // Adjust typing speed here
+
+        // Stop typing on scroll
+        window.addEventListener('scroll', () => {
+            clearInterval(typingInterval);
+            typingElement.textContent = text + " " + additionalText; // Show full text
+            document.querySelector('.cursor').style.display = 'none'; // Hide cursor
+        });
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        // Check for saved user preference, if any, and apply it
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-theme');
+        }
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+
+            // Save the user's preference in local storage
+            if (document.body.classList.contains('light-theme')) {
+                localStorage.setItem('theme', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
